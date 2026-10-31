@@ -30,8 +30,8 @@ jobs:
           APPDIR=$(dirname "$(find app -name package.json -not -path '*/node_modules/*' | head -1)")
           echo "APPDIR=$APPDIR" >> $GITHUB_ENV
           cd "$APPDIR"
-          npm install --no-audit --no-fund
-          npm install --no-audit --no-fund @capacitor/core@^7.4.0 @capacitor/android@^7.4.0 @capacitor/cli@^7.4.0
+                    npm install --no-audit --no-fund --legacy-peer-deps
+          npm install --no-audit --no-fund --legacy-peer-deps @capacitor/core@^7.4.0 @capacitor/android@^7.4.0 @capacitor/cli@^7.4.0
           echo '{"appId":"com.gamespacex.app","appName":"GameSpace X","webDir":"dist"}' > capacitor.config.json
           npm run build
 
